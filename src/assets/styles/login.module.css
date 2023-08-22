@@ -1,0 +1,82 @@
+.loginDiv {
+    position: absolute;
+    width: 400px;
+    height: 450px;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(56, 65, 74, 0.14902);
+    border-radius: 4px;
+}
+
+.loginForm {
+    width: 400px;
+    max-width: 400px;
+    max-height: 450px;
+    margin: 0;
+    padding: 0;
+}
+
+.loginH1 {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #405189;
+}
+
+.loginP {
+    margin: 0 0 40px 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+    color: #878a99;
+}
+
+.curvedDiv {
+    position: relative;
+    width: 100%;
+    height: 46vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.curvedDiv::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #dfe9f6;
+    border-radius: 0 0 60% 60% / 0 0 100% 100%;
+    transform: scaleX(1.5);
+    z-index: 0;
+}
+
+.imageDiv {
+    background: #F2F3F9;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+.image {
+    align-self: flex-end;
+    height: 60px !important;
+    width: 250px !important;
+}

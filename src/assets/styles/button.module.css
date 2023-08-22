@@ -1,0 +1,63 @@
+.defaultBtn {
+  border-radius: 4px;
+  min-width: 106px;
+}
+.darkBlueBtn {
+  background: #405189;
+  border-radius: 4px;
+  color: #fff !important;
+  min-width: 106px;
+}
+
+.lightBlueBtn {
+  background: #299cdb;
+  border-radius: 4px;
+  color: #fff !important;
+  min-width: 106px;
+}
+
+.lightDownloadBlueBtn {
+  background: #299cdb;
+  border-radius: 4px;
+   color: #fff !important;
+  margin: 0 5px;
+  min-width: 106px;
+}
+
+.cleanFormBtn {
+  border-radius: 4px;
+  margin: 0 5px;
+  min-width: 106px;
+}
+.blockBtn {
+  border-radius: 4px;
+  min-width: 100%;
+}
+
+.loginFormButton {
+  margin-top: 40px;
+  width: 100%;
+  background: #0AB39C;
+  border-radius: 4px;
+  color: #fff !important;
+}
+
+
+.loginFormButton:hover {
+   background-color: #0ce3c6;
+}
+
+.iconUp {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.iconDown {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}

@@ -1,0 +1,79 @@
+{
+  "root": true,
+  "extends": ["plugin:jsx-a11y/recommended"],
+  "plugins": [
+    "jsx-a11y",
+    "import",
+    "sort-keys-fix",
+    "react-hooks",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "globals": {
+    "JSX": "readonly"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "no-alert": "error",
+    "no-console": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "prettier/prettier": [
+      "warn",
+      {
+        "properties": {
+          "usePrettierrc": true
+        }
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/named": "error",
+    "import/default": "error",
+    "import/export": "error",
+    "import/no-named-as-default": "warn",
+    "import/no-duplicates": "error",
+    "sort-keys-fix/sort-keys-fix": "warn",
+    "@import/no-named-as-default-member": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {}
+    }
+  ]
+}
