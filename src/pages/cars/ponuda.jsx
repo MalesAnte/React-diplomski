@@ -402,15 +402,27 @@ const Ponuda = () => {
                           }
                         >
                           <Meta title={car.carName} />
-                          <p>Brand: {car.brand}</p>
-                          <p>Godina: {car.year}</p>
-                          <p>Kilometraža: {car.kilometers} km</p>
-                          <p>Gorivo: {car.fuel}</p>
-                          <p>Tip: {car.carType}</p>
+
+                          <p style={{ fontWeight: 'bold' }}>
+                            Brand: {car.brand}
+                          </p>
+                          <p style={{ fontWeight: 'bold' }}>
+                            Godina: {car.year}
+                          </p>
+                          <p style={{ fontWeight: 'bold' }}>
+                            Kilometraža: {car.kilometers} km
+                          </p>
+                          <p style={{ fontWeight: 'bold' }}>
+                            Gorivo: {car.fuel}
+                          </p>
+                          <p style={{ fontWeight: 'bold' }}>
+                            Tip: {car.carType}
+                          </p>
                           <p
                             style={{
                               border: `2px dashed red`,
                               borderRadius: 20,
+                              color: 'black',
                               fontSize: '1.9rem',
                               fontWeight: 'bold',
                               textAlign: 'center',
