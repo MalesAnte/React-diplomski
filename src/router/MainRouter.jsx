@@ -16,8 +16,8 @@ export const MainRouter = (props) => {
       <Routes>
         <>
           <Route path="/ipz" element={<Ipz />} />
-          <Route path="/oneCar" element={<SelectCar />} />
           <Route path="/cars" element={<Ponuda />} />
+          <Route path="/cars/:carId" element={<SelectCar />} />
         </>
       </Routes>
     </Suspense>

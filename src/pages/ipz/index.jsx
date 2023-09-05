@@ -36,7 +36,7 @@ const Ipz = () => {
 
   const handleModalClose = () => {
     setSelectedCar(null);
-    setModalVisible(false);
+    setModalVisible(!modalVisible);
   };
 
   // Grupisanje automobila po kategorijama
@@ -307,16 +307,6 @@ const Ipz = () => {
               Vidi više
             </Button>
           </Link>,
-
-          <Button
-            type="primary"
-            danger
-            key="close"
-            onClick={handleModalClose}
-            style={{ width: '100px' }}
-          >
-            Close
-          </Button>,
         ]}
       >
         {selectedCar && (
@@ -330,11 +320,11 @@ const Ipz = () => {
               alt="Car"
               style={{ marginBottom: '10px', width: '100%' }}
             />
-            <img
-              src={selectedCar.image1}
-              alt="Car"
-              style={{ marginBottom: '10px', width: '100%' }}
-            />
+            {/*<img*/}
+            {/*  src={selectedCar.image1}*/}
+            {/*  alt="Car"*/}
+            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+            {/*/>*/}
             {/*<img*/}
             {/*  src={selectedCar.image2}*/}
             {/*  alt="Car"*/}

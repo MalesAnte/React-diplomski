@@ -379,7 +379,7 @@ const Ponuda = () => {
                 <Row gutter={[16, 16]} justify="center">
                   {currentCars.map((car, id) => (
                     <Col key={id} xs={24} sm={12} md={8} lg={8}>
-                      <Link to={`/car/${car.id}`}>
+                      <Link to={`/cars/${car.id}`}>
                         <Card
                           hoverable
                           style={{
