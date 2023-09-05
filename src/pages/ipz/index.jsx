@@ -11,8 +11,7 @@ import {
 } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { AiFillCar, AiOutlineCalendar } from 'react-icons/Ai';
-import { BsCurrencyEuro } from 'react-icons/Bs';
-import { IoMdColorPalette } from 'react-icons/Io';
+import { BsCurrencyEuro, BsFuelPumpFill } from 'react-icons/Bs';
 import { TbRoad } from 'react-icons/Tb';
 import { TfiMoney } from 'react-icons/Tfi';
 import { Link } from 'react-router-dom';
@@ -37,7 +36,7 @@ const Ipz = () => {
 
   const handleModalClose = () => {
     setSelectedCar(null);
-    setModalVisible(false);
+    setModalVisible(!modalVisible);
   };
 
   // Grupisanje automobila po kategorijama
@@ -172,11 +171,13 @@ const Ipz = () => {
                   {cars.map((car) => (
                     <Col key={car.id} xs={24} sm={12} md={8} lg={6}>
                       <Card
+                        onClick={() => showCarDetails(car)}
                         hoverable
                         style={{
                           border: `5px solid #D3D3D3`,
                           margin: '10px',
                           padding: '20px',
+                          textAlign: 'center',
                           width: '100%',
                         }}
                         cover={
@@ -197,8 +198,9 @@ const Ipz = () => {
                             style={{
                               alignItems: 'center',
                               display: 'flex',
+                              fontSize: '1.1rem',
+                              fontWeight: 'bold',
                               marginLeft: '10px',
-                              textAlign: 'center',
                             }}
                           >
                             <AiOutlineCalendar
@@ -210,9 +212,20 @@ const Ipz = () => {
                               style={{
                                 alignItems: 'center',
                                 display: 'flex',
-                                marginLeft: '20px',
-
-                                textAlign: 'center',
+                                fontSize: '1.5rem',
+                                fontWeight: 'bold',
+                                marginLeft: '10px',
+                                marginRight: '10px',
+                              }}
+                            >
+                              |
+                            </p>
+                            <p
+                              style={{
+                                alignItems: 'center',
+                                display: 'flex',
+                                fontSize: '1.1rem',
+                                fontWeight: 'bold',
                               }}
                             >
                               <TbRoad
@@ -221,33 +234,53 @@ const Ipz = () => {
                               />
                               {car.kilometers} km
                             </p>
+                            <p
+                              style={{
+                                alignItems: 'center',
+                                display: 'flex',
+                                fontSize: '1.5rem',
+                                fontWeight: 'bold',
+                                marginLeft: '10px',
+                                marginRight: '10px',
+                              }}
+                            >
+                              |
+                            </p>
+                            <p
+                              style={{
+                                alignItems: 'center',
+                                display: 'flex',
+                                fontSize: '1.1rem',
+                                fontWeight: 'bold',
+                              }}
+                            >
+                              <BsFuelPumpFill
+                                size="1.2rem"
+                                style={{ marginRight: '10px' }}
+                              />
+                              {car.fuel}
+                            </p>
                           </h5>
 
-                          <h4
+                          <p
                             style={{
-                              fontSize: '35px',
+                              border: `2px dashed red`,
+                              borderRadius: 20,
+                              fontSize: '1.9rem',
                               fontWeight: 'bold',
-                              marginTop: '20px',
+                              padding: '5px',
                               textAlign: 'center',
                             }}
                           >
-                            {car.price}
-                            <BsCurrencyEuro size="1.1rem" />
-                          </h4>
+                            Cijena: {car.price}
+                            <BsCurrencyEuro size="1.4rem" />
+                          </p>
                           <div
                             style={{
                               fontSize: '25px',
                               fontWeight: 'bold',
-                              textAlign: 'center',
                             }}
-                          >
-                            <Button
-                              type="primary"
-                              onClick={() => showCarDetails(car)}
-                            >
-                              DETALJI
-                            </Button>
-                          </div>
+                          ></div>
                         </Space>
                       </Card>
                     </Col>
@@ -274,16 +307,6 @@ const Ipz = () => {
               Vidi više
             </Button>
           </Link>,
-
-          <Button
-            type="primary"
-            danger
-            key="close"
-            onClick={handleModalClose}
-            style={{ width: '100px' }}
-          >
-            Close
-          </Button>,
         ]}
       >
         {selectedCar && (
@@ -297,11 +320,11 @@ const Ipz = () => {
               alt="Car"
               style={{ marginBottom: '10px', width: '100%' }}
             />
-            <img
-              src={selectedCar.image1}
-              alt="Car"
-              style={{ marginBottom: '10px', width: '100%' }}
-            />
+            {/*<img*/}
+            {/*  src={selectedCar.image1}*/}
+            {/*  alt="Car"*/}
+            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+            {/*/>*/}
             {/*<img*/}
             {/*  src={selectedCar.image2}*/}
             {/*  alt="Car"*/}
