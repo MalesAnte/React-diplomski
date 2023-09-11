@@ -10,10 +10,8 @@ import {
   Modal,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { AiFillCar, AiOutlineCalendar } from 'react-icons/Ai';
-import { BsCurrencyEuro, BsFuelPumpFill } from 'react-icons/Bs';
+import { BsFillFuelPumpFill, BsCalendarCheckFill } from 'react-icons/bs';
 import { TbRoad } from 'react-icons/Tb';
-import { TfiMoney } from 'react-icons/Tfi';
 import { Link } from 'react-router-dom';
 
 import '../../assets/styles/public.css';
@@ -203,7 +201,7 @@ const Ipz = () => {
                               marginLeft: '10px',
                             }}
                           >
-                            <AiOutlineCalendar
+                            <BsCalendarCheckFill
                               size="1.5rem"
                               style={{ marginRight: '10px' }}
                             />
@@ -254,7 +252,7 @@ const Ipz = () => {
                                 fontWeight: 'bold',
                               }}
                             >
-                              <BsFuelPumpFill
+                              <BsFillFuelPumpFill
                                 size="1.2rem"
                                 style={{ marginRight: '10px' }}
                               />
@@ -273,7 +271,7 @@ const Ipz = () => {
                             }}
                           >
                             Cijena: {car.price}
-                            <BsCurrencyEuro size="1.4rem" />
+                            {/*<BsCurrencyEuro size="1.4rem" />*/}
                           </p>
                           <div
                             style={{
@@ -297,7 +295,7 @@ const Ipz = () => {
         width={1000}
         height={1000}
         footer={[
-          <Link to="/oneCar">
+          <Link to={`/cars`}>
             <Button
               type="primary"
               key="close"

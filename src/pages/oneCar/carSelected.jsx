@@ -1,5 +1,6 @@
 import { Layout, Typography, Card, Row, Col, Carousel, Image } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { TbRoad } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 
 import jsonData from '../../api/data.json';
@@ -72,88 +73,217 @@ const SelectCar = () => {
             </Col>
 
             <Col xs={24} sm={12} md={12} lg={12}>
-              <div>
-                <p
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                }}
+              >
+                <div
                   style={{
+                    border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    fontSize: '1.9rem',
-                    fontWeight: 'bold',
-                    padding: '5px',
-                    textAlign: 'center',
-                  }}
-                >
-                  {car?.carName}
-                </p>
-                <p
-                  style={{
-                    borderRadius: 20,
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    height: '50px',
+                    height: '80px',
                     marginLeft: '50px',
-                    padding: '5px',
-                    textAlign: 'left',
+                    marginRight: '20px',
+                    padding: '10px',
                     width: '300px',
                   }}
                 >
-                  Godina: {car?.year}
-                </p>
-                <p
+                  Proizvođač: <br />
+                  <b>{car?.brand}</b>
+                </div>
+                <div
                   style={{
+                    border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    height: '50px',
-                    marginLeft: '50px',
-                    padding: '5px',
-                    textAlign: 'left',
+                    height: '80px',
+                    marginLeft: '20px',
+                    padding: '10px',
                     width: '300px',
                   }}
                 >
-                  Boja: {car?.color}
-                </p>
-                <p
+                  Model: <br />
+                  <b>{car?.carName}</b>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
                   style={{
+                    border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    height: '50px',
+                    height: '80px',
                     marginLeft: '50px',
-                    padding: '5px',
-                    textAlign: 'left',
+                    marginRight: '20px',
+                    padding: '10px',
                     width: '300px',
                   }}
                 >
-                  Kilometraža: {car?.kilometers} km
-                </p>
-                <p
+                  Godište: <br />
+                  <b>{car?.year}</b>
+                </div>
+                <div
                   style={{
+                    border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    height: '50px',
-                    marginLeft: '50px',
-                    padding: '5px',
-                    textAlign: 'left',
+                    height: '80px',
+                    marginLeft: '20px',
+                    padding: '10px',
                     width: '300px',
                   }}
                 >
-                  Tip: {car?.carType}
-                </p>
-                <p
+                  Boja: <br />
+                  <b>{car?.color}</b>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
                   style={{
+                    border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    fontSize: '1.3rem',
-                    fontWeight: 'bold',
-                    height: '50px',
+                    height: '80px',
                     marginLeft: '50px',
-                    padding: '5px',
-                    textAlign: 'left',
+                    marginRight: '20px',
+                    padding: '10px',
                     width: '300px',
                   }}
                 >
-                  Gorivo: {car?.fuel}
-                </p>
+                  Kilometraža: <br />
+                  <b>{car?.kilometers} km</b>
+                </div>
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '80px',
+                    marginLeft: '20px',
+                    padding: '10px',
+                    width: '300px',
+                  }}
+                >
+                  Tip: <br />
+                  <b>{car?.carType}</b>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '80px',
+                    marginLeft: '50px',
+                    marginRight: '20px',
+                    padding: '10px',
+                    width: '300px',
+                  }}
+                >
+                  Gorivo: <br />
+                  <b>{car?.fuel}</b>
+                </div>
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '80px',
+                    marginLeft: '20px',
+                    padding: '10px',
+                    width: '300px',
+                  }}
+                >
+                  Kubikaža: <br />
+                  <b>{car?.motor}</b>
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '80px',
+                    marginLeft: '50px',
+                    marginRight: '20px',
+                    padding: '10px',
+                    width: '300px',
+                  }}
+                >
+                  Kilovata [KW]: <br />
+                  <b></b>
+                </div>
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '80px',
+                    marginLeft: '20px',
+                    padding: '10px',
+                    width: '300px',
+                  }}
+                >
+                  Broj vrata: <br />
+                  <b></b>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    height: '500px',
+                    marginLeft: '50px',
+                    marginRight: '20px',
+                    padding: '10px',
+                    width: '645px',
+                  }}
+                >
+                  <h4>OPIS</h4>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text ever since the 1500s, when an unknown
+                  printer took a galley of type and scrambled it to make a type
+                  specimen book. It has survived not only five centuries, but
+                  also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                  the release of Letraset sheets containing Lorem Ipsum
+                  passages, and more recently with desktop publishing software
+                  like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
               </div>
             </Col>
           </Row>

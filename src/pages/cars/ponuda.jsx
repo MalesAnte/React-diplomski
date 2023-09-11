@@ -401,7 +401,9 @@ const Ponuda = () => {
                             />
                           }
                         >
-                          <Meta title={car.carName} />
+                          <p style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+                            Brand: {car.carName}
+                          </p>
 
                           <p style={{ fontWeight: 'bold' }}>
                             Brand: {car.brand}

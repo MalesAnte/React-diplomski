@@ -17,7 +17,7 @@ const { Header, Content } = Layout;
 const menu = [
   {
     id: '1',
-    name: 'POČETNA',
+    name: 'HOME',
     url: '/ipz',
   },
   {

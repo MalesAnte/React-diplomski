@@ -9,6 +9,7 @@
       "kilometers": "15 000",
       "carType": "SUV",
       "fuel": "Dizel",
+      "motor": 3.5,
       "price": 65000,
       "image": "../../../public/assets/images/carPhoto/allCars/Mercedes/gle/1.jpg",
       "image1": "../../../public/assets/images/carPhoto/allCars/Mercedes/gle/2.jpg",
