@@ -10,7 +10,11 @@ import {
   Modal,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { BsFillFuelPumpFill, BsCalendarCheckFill } from 'react-icons/bs';
+import {
+  BsFillFuelPumpFill,
+  BsCalendarCheckFill,
+  BsCurrencyEuro,
+} from 'react-icons/bs';
 import { TbRoad } from 'react-icons/Tb';
 import { Link } from 'react-router-dom';
 
@@ -262,7 +266,7 @@ const Ipz = () => {
 
                           <p
                             style={{
-                              border: `2px dashed red`,
+                              border: `1px dashed red`,
                               borderRadius: 20,
                               fontSize: '1.9rem',
                               fontWeight: 'bold',
@@ -271,7 +275,7 @@ const Ipz = () => {
                             }}
                           >
                             Cijena: {car.price}
-                            {/*<BsCurrencyEuro size="1.4rem" />*/}
+                            <BsCurrencyEuro size="1.4rem" />
                           </p>
                           <div
                             style={{

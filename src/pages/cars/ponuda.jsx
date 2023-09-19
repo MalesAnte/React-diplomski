@@ -25,7 +25,7 @@ const { Search } = Input;
 const { Title } = Typography;
 const { Option } = Select;
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 15;
 
 const Ponuda = () => {
   const [selectedCar, setSelectedCar] = useState(null);
@@ -353,11 +353,20 @@ const Ponuda = () => {
                   <Option value="Kabriolet">Kabriolet</Option>
                 </Select>
               </div>
-              <Button type="primary" onClick={applyFilter}>
-                Apply Filter
+              <Button
+                type="primary"
+                onClick={applyFilter}
+                style={{ width: '100px' }}
+              >
+                Pretraži
               </Button>
-              <Button type="primary" danger onClick={handleResetFilter}>
-                Reset Filter
+              <Button
+                type="primary"
+                danger
+                onClick={handleResetFilter}
+                style={{ width: '100px' }}
+              >
+                Reset
               </Button>
             </Space>
           </Col>
@@ -413,6 +422,9 @@ const Ponuda = () => {
                           </p>
                           <p style={{ fontWeight: 'bold' }}>
                             Kilometraža: {car.kilometers} km
+                          </p>
+                          <p style={{ fontWeight: 'bold' }}>
+                            Boja: {car.color}
                           </p>
                           <p style={{ fontWeight: 'bold' }}>
                             Gorivo: {car.fuel}

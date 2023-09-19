@@ -1,10 +1,10 @@
 import { Layout, Typography, Card, Row, Col, Carousel, Image } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { BsCurrencyEuro } from 'react-icons/bs';
 import { TbRoad } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 
 import jsonData from '../../api/data.json';
-
 const { Meta } = Card;
 const { Content } = Layout;
 const { Title } = Typography;
@@ -46,8 +46,8 @@ const SelectCar = () => {
             <Col xs={24} sm={12} md={12} lg={12}>
               <Card
                 cover={
-                  <div>
-                    <Image style={{ width: '700px' }} src={selectedImage} />
+                  <div style={{ height: '50rem', width: '700px' }}>
+                    <Image src={selectedImage} />
                     <div style={{ display: 'flex', marginTop: '20px' }}>
                       {car.image &&
                         [
@@ -60,7 +60,7 @@ const SelectCar = () => {
                           <div
                             key={index}
                             style={{ cursor: 'pointer', marginRight: '25px' }}
-                            onClick={() => onThumbnailClick(image)}
+                            // onClick={() => onThumbnailClick(image)} // PRIKAZIVANJE ODABRANE SLIKE
                           >
                             <Image style={{ width: '120px' }} src={image} />
                           </div>
@@ -176,7 +176,7 @@ const SelectCar = () => {
                     width: '300px',
                   }}
                 >
-                  Tip: <br />
+                  Vrsta karoserije: <br />
                   <b>{car?.carType}</b>
                 </div>
               </div>
@@ -235,8 +235,8 @@ const SelectCar = () => {
                     width: '300px',
                   }}
                 >
-                  Kilovata [KW]: <br />
-                  <b></b>
+                  Kilovata [kW]: <br />
+                  <b>{car?.kw}</b> kW
                 </div>
                 <div
                   style={{
@@ -248,8 +248,37 @@ const SelectCar = () => {
                     width: '300px',
                   }}
                 >
-                  Broj vrata: <br />
-                  <b></b>
+                  Snaga [KS]: <br />
+                  <b>{car?.hp}</b> KS
+                </div>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  fontSize: '1.4rem',
+                  marginTop: '20px',
+                }}
+              >
+                <div
+                  style={{
+                    border: `2px solid #D3D3D3`,
+                    borderRadius: 20,
+                    fontSize: '1.9rem',
+                    fontWeight: 'bold',
+                    height: '80px',
+                    marginLeft: '50px',
+                    marginRight: '20px',
+                    padding: '20px',
+                    textAlign: 'center',
+                    width: '644px',
+                  }}
+                >
+                  CIJENA:
+                  <b>
+                    {' '}
+                    {car?.price} <BsCurrencyEuro size="1.4rem" />
+                  </b>
                 </div>
               </div>
 
@@ -272,7 +301,7 @@ const SelectCar = () => {
                     width: '645px',
                   }}
                 >
-                  <h4>OPIS</h4>
+                  <h4>Detaljni opis</h4>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
                   standard dummy text ever since the 1500s, when an unknown
