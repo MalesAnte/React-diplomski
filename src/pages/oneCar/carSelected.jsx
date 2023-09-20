@@ -62,11 +62,11 @@ const SelectCar = () => {
                             onClick={() => onThumbnailClick(image)}
                           >
                             <Image
-                              // style={{
-                              //   marginLeft: '2px',
-                              //   padding: '5px',
-                              //   width: '105px',
-                              // }}
+                              style={{
+                                marginLeft: '2px',
+                                padding: '5px',
+                                width: '105px',
+                              }}
                               src={image}
                             />
                           </div>
