@@ -370,7 +370,7 @@ const Ponuda = () => {
               </Button>
             </Space>
           </Col>
-          <Col xs={24} sm={16} md={18} lg={20}>
+          <Col xs={24} sm={24} md={18} lg={18}>
             <div
               style={{
                 border: `2px solid #D3D3D3 `,
@@ -384,28 +384,30 @@ const Ponuda = () => {
                 padding: '10px',
               }}
             >
-              <div style={{ maxWidth: '93%' }}>
+              <div style={{ maxWidth: '100%' }}>
                 <Row gutter={[16, 16]} justify="center">
                   {currentCars.map((car, id) => (
-                    <Col key={id} xs={24} sm={12} md={8} lg={8}>
+                    <Col key={id} xs={24} sm={16} md={12} lg={8}>
                       <Link to={`/cars/${car.id}`}>
                         <Card
                           hoverable
                           style={{
                             border: `2px solid #D3D3D3 `,
+
                             marginLeft: '50px',
                             marginRight: '50px',
                             marginTop: '50px',
                             padding: '10px',
-                            width: '100%',
+                            width: '450px',
                           }}
                           cover={
                             <img
                               alt=""
                               src={car.image}
                               style={{
-                                height: '300px',
+                                height: '350px',
                                 objectFit: 'cover',
+                                width: '430px',
                               }}
                             />
                           }

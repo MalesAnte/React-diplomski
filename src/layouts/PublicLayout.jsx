@@ -17,7 +17,7 @@ const { Header, Content } = Layout;
 const menu = [
   {
     id: '1',
-    name: 'HOME',
+    name: 'POČETNA',
     url: '/ipz',
   },
   {
@@ -74,7 +74,7 @@ const Footer = () => {
         </Col>
 
         {/* Second row */}
-        <Col xs={24} sm={6}>
+        <Col xs={24} sm={12} md={12} lg={6}>
           <h3>Tip auta</h3>
           <Space direction="vertical">
             <span>SUV</span>
@@ -124,7 +124,7 @@ const Footer = () => {
 
       <Row gutter={[16, 16]}>
         {/* Last row - Centered Text */}
-        <Col xs={24} sm={24}>
+        <Col xs={24} sm={12} md={12} lg={24}>
           <h3
             style={{
               alignItems: 'center',
@@ -145,24 +145,45 @@ const PublicLayout = ({ children }) => {
 
   return (
     <Layout>
-      <Header
-        style={{
-          alignItems: 'center',
-          display: 'flex',
-          padding: '0px 30px',
-        }}
-      >
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ marginRight: '50px', width: '175px' }}
-        />
+      {/*<Header*/}
+      {/*  style={{*/}
+      {/*    alignItems: 'center',*/}
+      {/*    display: 'flex',*/}
+      {/*    padding: '0px 30px',*/}
+      {/*  }}*/}
+      {/*>*/}
+      {/*  <img*/}
+      {/*    src={logo}*/}
+      {/*    alt="Logo"*/}
+      {/*    style={{ marginRight: '50px', width: '175px' }}*/}
+      {/*  />*/}
+      {/*  <Menu*/}
+      {/*    style={{ width: '100vh' }}*/}
+      {/*    theme="dark"*/}
+      {/*    mode="horizontal"*/}
+      {/*    defaultSelectedKeys={['/']}*/}
+      {/*    selectedKeys={[location.pathname]}*/}
+      {/*    items={menu.map((item) => ({*/}
+      {/*      key: item.id,*/}
+      {/*      label: (*/}
+      {/*        <NavLink*/}
+      {/*          key={item.id}*/}
+      {/*          to={item.url}*/}
+      {/*          className={({ isActive }) => (isActive ? 'active' : '')}*/}
+      {/*        >*/}
+      {/*          {item.name}*/}
+      {/*        </NavLink>*/}
+      {/*      ),*/}
+      {/*    }))}*/}
+      {/*  />*/}
+      {/*</Header>*/}
+
+      <Header style={{ alignItems: 'center', display: 'flex' }}>
+        <div className="demo-logo" />
         <Menu
-          style={{ width: '100vh' }}
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['/']}
-          selectedKeys={[location.pathname]}
           items={menu.map((item) => ({
             key: item.id,
             label: (
@@ -177,6 +198,7 @@ const PublicLayout = ({ children }) => {
           }))}
         />
       </Header>
+
       <Layout>
         <Layout>
           <Content

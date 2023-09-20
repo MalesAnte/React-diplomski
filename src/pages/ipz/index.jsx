@@ -171,7 +171,7 @@ const Ipz = () => {
                 </Title>
                 <Row gutter={[16, 16]} justify="center">
                   {cars.map((car) => (
-                    <Col key={car.id} xs={24} sm={12} md={8} lg={6}>
+                    <Col key={car.id} xs={24} sm={12} md={12} lg={6}>
                       <Card
                         onClick={() => showCarDetails(car)}
                         hoverable

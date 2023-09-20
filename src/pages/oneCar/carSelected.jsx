@@ -1,7 +1,6 @@
-import { Layout, Typography, Card, Row, Col, Carousel, Image } from 'antd';
+import { Layout, Typography, Card, Row, Col, Image } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { BsCurrencyEuro } from 'react-icons/bs';
-import { TbRoad } from 'react-icons/tb';
 import { useParams } from 'react-router-dom';
 
 import jsonData from '../../api/data.json';
@@ -11,44 +10,44 @@ const { Title } = Typography;
 
 const SelectCar = () => {
   const [car, setCar] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null); // Dodajemo stanje za praćenje selektovane slike
+  const [selectedImage, setSelectedImage] = useState(null);
   const { carId } = useParams();
 
   useEffect(() => {
     const selectedCar = jsonData.cars.find((car) => car.id === parseInt(carId));
 
     setCar(selectedCar);
-    setSelectedImage(selectedCar?.image); // Postavljamo početnu uvećanu sliku
+    setSelectedImage(selectedCar?.image);
   }, [carId]);
-
-  const contentStyle = {
-    background: '#364d79',
-    color: '#fff',
-    height: '160px',
-    lineHeight: '160px',
-    margin: 0,
-    textAlign: 'center',
-  };
-
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
 
   const onThumbnailClick = (imageSrc) => {
     setSelectedImage(imageSrc);
   };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Content style={{ padding: '150px' }}>
+    <Layout style={{ minHeight: '100vh', padding: '20px' }}>
+      <Content
+      // style={{ margin: '0 auto', maxWidth: '1200px', padding: '50px 10px' }}
+      >
         {car ? (
-          <Row gutter={[16, 16]}>
-            <Col xs={24} sm={12} md={12} lg={12}>
+          <Row>
+            <Col xs={24} sm={12} md={12} lg={10}>
               <Card
                 cover={
-                  <div style={{ height: '50rem', width: '700px' }}>
+                  <div
+                    style={{
+                      height: 'auto',
+                      maxWidth: '100%',
+                    }}
+                  >
                     <Image src={selectedImage} />
-                    <div style={{ display: 'flex', marginTop: '20px' }}>
+                    <div
+                      style={{
+                        alignItems: 'center',
+                        display: 'flex',
+                        marginTop: '20px',
+                      }}
+                    >
                       {car.image &&
                         [
                           car.image,
@@ -59,36 +58,40 @@ const SelectCar = () => {
                         ].map((image, index) => (
                           <div
                             key={index}
-                            style={{ cursor: 'pointer', marginRight: '25px' }}
-                            // onClick={() => onThumbnailClick(image)} // PRIKAZIVANJE ODABRANE SLIKE
+                            style={{ cursor: 'pointer', marginRight: '10px' }}
+                            onClick={() => onThumbnailClick(image)}
                           >
-                            <Image style={{ width: '120px' }} src={image} />
+                            <Image
+                              // style={{
+                              //   marginLeft: '2px',
+                              //   padding: '5px',
+                              //   width: '105px',
+                              // }}
+                              src={image}
+                            />
                           </div>
                         ))}
                     </div>
                   </div>
                 }
-                style={{ maxWidth: '50%' }}
-              ></Card>
+              />
             </Col>
-
-            <Col xs={24} sm={12} md={12} lg={12}>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                }}
-              >
+            <Col
+              xs={24}
+              sm={24}
+              md={24}
+              lg={8}
+              style={{
+                border: `2px solid red`,
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: '1.4rem' }}>
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Proizvođač: <br />
@@ -98,33 +101,19 @@ const SelectCar = () => {
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Model: <br />
                   <b>{car?.carName}</b>
                 </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Godište: <br />
@@ -134,33 +123,19 @@ const SelectCar = () => {
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Boja: <br />
                   <b>{car?.color}</b>
                 </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Kilometraža: <br />
@@ -170,33 +145,19 @@ const SelectCar = () => {
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Vrsta karoserije: <br />
                   <b>{car?.carType}</b>
                 </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Gorivo: <br />
@@ -206,72 +167,19 @@ const SelectCar = () => {
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '20px',
+                    marginTop: '10px',
                     padding: '10px',
-                    width: '300px',
                   }}
                 >
                   Kubikaža: <br />
                   <b>{car?.motor}</b>
                 </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
-                    padding: '10px',
-                    width: '300px',
-                  }}
-                >
-                  Kilovata [kW]: <br />
-                  <b>{car?.kw}</b> kW
-                </div>
-                <div
-                  style={{
-                    border: `2px solid #D3D3D3`,
-                    borderRadius: 20,
-                    height: '80px',
-                    marginLeft: '20px',
-                    padding: '10px',
-                    width: '300px',
-                  }}
-                >
-                  Snaga [KS]: <br />
-                  <b>{car?.hp}</b> KS
-                </div>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
-                <div
-                  style={{
-                    border: `2px solid #D3D3D3`,
-                    borderRadius: 20,
-                    fontSize: '1.9rem',
-                    fontWeight: 'bold',
-                    height: '80px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
+                    marginTop: '20px',
                     padding: '20px',
-                    textAlign: 'center',
-                    width: '644px',
                   }}
                 >
                   CIJENA:
@@ -282,23 +190,13 @@ const SelectCar = () => {
                 </div>
               </div>
 
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  fontSize: '1.4rem',
-                  marginTop: '20px',
-                }}
-              >
+              <div style={{ fontSize: '1.4rem', marginTop: '20px' }}>
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
                     borderRadius: 20,
-                    height: '500px',
-                    marginLeft: '50px',
-                    marginRight: '20px',
+                    height: 'auto',
                     padding: '10px',
-                    width: '645px',
                   }}
                 >
                   <h4>Detaljni opis</h4>
