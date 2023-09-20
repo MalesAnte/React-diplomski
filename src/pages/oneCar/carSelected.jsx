@@ -31,7 +31,7 @@ const SelectCar = () => {
       >
         {car ? (
           <Row>
-            <Col xs={24} sm={12} md={12} lg={10}>
+            <Col xs={24} sm={12} md={12} lg={12}>
               <Card
                 cover={
                   <div
@@ -76,16 +76,7 @@ const SelectCar = () => {
                 }
               />
             </Col>
-            <Col
-              xs={24}
-              sm={24}
-              md={24}
-              lg={8}
-              style={{
-                border: `2px solid red`,
-                textAlign: 'center',
-              }}
-            >
+            <Col xs={24} sm={24} md={24} lg={12}>
               <div style={{ fontSize: '1.4rem' }}>
                 <div
                   style={{
