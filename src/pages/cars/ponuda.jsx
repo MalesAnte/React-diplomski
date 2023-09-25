@@ -7,18 +7,16 @@ import {
   Card,
   Col,
   Row,
-  Modal,
-  Menu,
   Select,
   InputNumber,
   Pagination,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { BsCurrencyEuro } from 'react-icons/Bs';
+// import { BsCurrencyEuro } from 'react-icons/Bs';
 import { Link } from 'react-router-dom';
 
 import jsonData from '../../api/data.json';
-import SelectCar from '../oneCar/carSelected';
+// import SelectCar from '../oneCar/carSelected';
 const { Meta } = Card;
 const { Content } = Layout;
 const { Search } = Input;
@@ -211,13 +209,13 @@ const Ponuda = () => {
         }}
       >
         <Row gutter={[16, 16]} align="top">
-          <Col xs={24} sm={8} md={6} lg={4}>
+          <Col xs={22} sm={23} md={8} lg={6}>
             <Space
               direction="vertical"
               style={{
                 border: `2px solid #D3D3D3`,
                 borderRadius: '20px',
-                marginLeft: '20px',
+                margin: '20px',
                 padding: '20px',
                 width: '100%',
               }}
@@ -370,44 +368,40 @@ const Ponuda = () => {
               </Button>
             </Space>
           </Col>
-          <Col xs={24} sm={24} md={18} lg={18}>
+          <Col xs={24} sm={24} md={16} lg={18}>
             <div
               style={{
-                border: `2px solid #D3D3D3 `,
+                border: `2px solid #D3D3D3`,
                 borderRadius: '20px',
                 justifyContent: 'center',
+                margin: '20px',
                 marginBottom: '100px',
-                marginLeft: '20px',
-                marginRight: '20px',
                 minHeight: '100vh',
                 overflowX: 'auto',
                 padding: '10px',
               }}
             >
-              <div style={{ maxWidth: '100%' }}>
+              <div style={{ maxWidth: '92%' }}>
                 <Row gutter={[16, 16]} justify="center">
                   {currentCars.map((car, id) => (
-                    <Col key={id} xs={24} sm={16} md={12} lg={8}>
+                    <Col key={id} xs={24} sm={12} md={14} lg={10} xl={8}>
                       <Link to={`/cars/${car.id}`}>
                         <Card
                           hoverable
                           style={{
-                            border: `2px solid #D3D3D3 `,
-
-                            marginLeft: '50px',
-                            marginRight: '50px',
-                            marginTop: '50px',
-                            padding: '10px',
-                            width: '450px',
+                            border: `5px solid #D3D3D3`,
+                            margin: '10px',
+                            padding: '20px',
+                            textAlign: 'center',
+                            width: '100%',
                           }}
                           cover={
                             <img
                               alt=""
                               src={car.image}
                               style={{
-                                height: '350px',
+                                height: '300px',
                                 objectFit: 'cover',
-                                width: '430px',
                               }}
                             />
                           }
@@ -444,8 +438,8 @@ const Ponuda = () => {
                               textAlign: 'center',
                             }}
                           >
-                            Cijena: {car.price}
-                            <BsCurrencyEuro size="1.4rem" />
+                            Cijena: {car.price} €
+                            {/*<BsCurrencyEuro size="1.4rem" />*/}
                           </p>
                         </Card>
                       </Link>
