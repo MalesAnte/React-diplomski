@@ -1,83 +1,118 @@
-import { Layout, Typography, Card, Row, Col, Image } from 'antd';
+import { Layout, Typography, Card, Row, Col, Image, Button } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { BsCurrencyEuro } from 'react-icons/bs';
+import {
+  BsFillArrowLeftSquareFill,
+  BsFillArrowRightSquareFill,
+} from 'react-icons/bs';
 import { useParams } from 'react-router-dom';
+import { Slide } from 'react-slideshow-image';
 
 import jsonData from '../../api/data.json';
 const { Meta } = Card;
 const { Content } = Layout;
 const { Title } = Typography;
 
+const spanStyle = {
+  background: '#efefef',
+  color: '#000000',
+  padding: '20px',
+};
+
+const divStyle = {
+  alignItems: 'center',
+  backgroundSize: 'cover',
+  display: 'flex',
+  height: '400px',
+  justifyContent: 'center',
+};
+const carImages = jsonData.cars.map((car, index) => ({
+  url: car.image,
+}));
+
 const SelectCar = () => {
   const [car, setCar] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { carId } = useParams();
 
   useEffect(() => {
     const selectedCar = jsonData.cars.find((car) => car.id === parseInt(carId));
 
     setCar(selectedCar);
-    setSelectedImage(selectedCar?.image);
   }, [carId]);
 
-  const onThumbnailClick = (imageSrc) => {
-    setSelectedImage(imageSrc);
+  const showNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carImages.length);
   };
 
+  const showPrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? carImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const carImages = [
+    car?.image,
+    car?.image1,
+    car?.image2,
+    car?.image3,
+    car?.image4,
+  ].filter(Boolean);
   return (
     <Layout style={{ minHeight: '100vh', padding: '20px' }}>
-      <Content
-      // style={{ margin: '0 auto', maxWidth: '1200px', padding: '50px 10px' }}
-      >
+      <Content>
         {car ? (
           <Row>
-            <Col xs={24} sm={12} md={12} lg={12}>
-              <Card
-                cover={
-                  <div
-                    style={{
-                      height: 'auto',
-                      maxWidth: '100%',
-                    }}
-                  >
-                    <Image src={selectedImage} />
-                    <div
-                      style={{
-                        alignItems: 'center',
-                        display: 'flex',
-                        marginTop: '20px',
-                      }}
-                    >
-                      {car.image &&
-                        [
-                          car.image,
-                          car.image1,
-                          car.image2,
-                          car.image3,
-                          car.image4,
-                        ].map((image, index) => (
-                          <div
-                            key={index}
-                            style={{ cursor: 'pointer', marginRight: '10px' }}
-                            onClick={() => onThumbnailClick(image)}
-                          >
-                            <Image
-                              style={{
-                                marginLeft: '2px',
-                                padding: '5px',
-                                width: '105px',
-                              }}
-                              src={image}
-                            />
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                }
-              />
+            <Col xs={24} sm={18} md={24} lg={14}>
+              <div className="slide-container">
+                <img
+                  style={{ width: '100%' }}
+                  src={carImages[currentImageIndex]}
+                  alt={`Image ${currentImageIndex}`}
+                />
+              </div>
+
+              <div
+                className="slide-buttons"
+                style={{
+                  alignItems: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  margin: '10px',
+                  padding: '5px',
+                }}
+              >
+                <Button
+                  type="primary"
+                  danger
+                  onClick={showPrevImage}
+                  style={{
+                    background: 'grey',
+                    marginRight: '5px',
+                    width: '20%',
+                  }}
+                >
+                  <BsFillArrowLeftSquareFill size="1.4rem" />
+                </Button>
+                <Button
+                  type="primary"
+                  onClick={showNextImage}
+                  style={{
+                    background: 'grey',
+                    marginLeft: '5px',
+                    width: '20%',
+                  }}
+                >
+                  <BsFillArrowRightSquareFill size="1.4rem" />
+                </Button>
+              </div>
             </Col>
-            <Col xs={24} sm={24} md={24} lg={12}>
-              <div style={{ fontSize: '1.4rem' }}>
+            <Col xs={24} sm={24} md={24} lg={8}>
+              <div
+                style={{
+                  fontSize: '1.8rem',
+                  margin: '30px',
+                }}
+              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
@@ -173,15 +208,20 @@ const SelectCar = () => {
                     padding: '20px',
                   }}
                 >
-                  CIJENA:
+                  CIJENA: <br />
                   <b>
                     {' '}
-                    {car?.price} <BsCurrencyEuro size="1.4rem" />
+                    {car?.price} €{/*<BsCurrencyEuro size="1.4rem" />*/}
                   </b>
                 </div>
               </div>
 
-              <div style={{ fontSize: '1.4rem', marginTop: '20px' }}>
+              <div
+                style={{
+                  fontSize: '1.4rem',
+                  margin: '30px',
+                }}
+              >
                 <div
                   style={{
                     border: `2px solid #D3D3D3`,
