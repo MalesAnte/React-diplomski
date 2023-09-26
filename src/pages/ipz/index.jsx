@@ -10,12 +10,12 @@ import {
   Modal,
 } from 'antd';
 import React, { useState, useEffect } from 'react';
-import {
-  BsFillFuelPumpFill,
-  BsCalendarCheckFill,
-  BsCurrencyEuro,
-} from 'react-icons/bs';
-import { TbRoad } from 'react-icons/Tb';
+// import {
+//   BsFillFuelPumpFill,
+//   BsCalendarCheckFill,
+//   BsCurrencyEuro,
+// } from 'react-icons/bs';
+// import { TbRoad } from 'react-icons/Tb';
 import { Link } from 'react-router-dom';
 
 import '../../assets/styles/public.css';
@@ -205,10 +205,10 @@ const Ipz = () => {
                               marginLeft: '10px',
                             }}
                           >
-                            <BsCalendarCheckFill
-                              size="1.5rem"
-                              style={{ marginRight: '10px' }}
-                            />
+                            {/*<BsCalendarCheckFill*/}
+                            {/*  size="1.5rem"*/}
+                            {/*  style={{ marginRight: '10px' }}*/}
+                            {/*/>*/}
                             {car.year}
                             <p
                               style={{
@@ -230,10 +230,10 @@ const Ipz = () => {
                                 fontWeight: 'bold',
                               }}
                             >
-                              <TbRoad
-                                size="1.5rem"
-                                style={{ marginRight: '10px' }}
-                              />
+                              {/*<TbRoad*/}
+                              {/*  size="1.5rem"*/}
+                              {/*  style={{ marginRight: '10px' }}*/}
+                              {/*/>*/}
                               {car.kilometers} km
                             </p>
                             <p
@@ -256,10 +256,10 @@ const Ipz = () => {
                                 fontWeight: 'bold',
                               }}
                             >
-                              <BsFillFuelPumpFill
-                                size="1.2rem"
-                                style={{ marginRight: '10px' }}
-                              />
+                              {/*<BsFillFuelPumpFill*/}
+                              {/*  size="1.2rem"*/}
+                              {/*  style={{ marginRight: '10px' }}*/}
+                              {/*/>*/}
                               {car.fuel}
                             </p>
                           </h5>
@@ -274,8 +274,8 @@ const Ipz = () => {
                               textAlign: 'center',
                             }}
                           >
-                            Cijena: {car.price}
-                            <BsCurrencyEuro size="1.4rem" />
+                            Cijena: {car.price} KM
+                            {/*<BsCurrencyEuro size="1.4rem" />*/}
                           </p>
                           <div
                             style={{
@@ -304,7 +304,10 @@ const Ipz = () => {
               type="primary"
               key="close"
               onClick={handleModalClose}
-              style={{ marginRight: '5px', width: '100px' }}
+              style={{
+                marginRight: '5px',
+                width: '100px',
+              }}
             >
               Vidi više
             </Button>
