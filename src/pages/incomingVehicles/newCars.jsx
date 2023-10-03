@@ -25,7 +25,7 @@ const { Option } = Select;
 
 const ITEMS_PER_PAGE = 15;
 
-const Ponuda = () => {
+const NewCars = () => {
   const [selectedCar, setSelectedCar] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [filteredCars, setFilteredCars] = useState(jsonData.cars);
@@ -118,7 +118,7 @@ const Ponuda = () => {
       filtered = filtered.filter((car) => car.brand === filter.brand);
     }
 
-    if (filter.model && filter.brand) {
+    if (filter.model) {
       filtered = filtered.filter((car) => car.carName === filter.model);
     }
 
@@ -175,7 +175,6 @@ const Ponuda = () => {
   const currentCars = filteredCars.slice(startIndex, endIndex);
 
   const handlePageChange = (page) => {
-    window.scrollTo(0, 0);
     setCurrentPage(page);
   };
 
@@ -210,7 +209,7 @@ const Ponuda = () => {
         }}
       >
         <Row gutter={[16, 16]} align="top">
-          <Col xs={24} sm={24} md={23} lg={6}>
+          <Col xs={22} sm={23} md={8} lg={6}>
             <Space
               direction="vertical"
               style={{
@@ -352,13 +351,13 @@ const Ponuda = () => {
                   <Option value="Kabriolet">Kabriolet</Option>
                 </Select>
               </div>
-              {/*<Button*/}
-              {/*  type="primary"*/}
-              {/*  onClick={applyFilter}*/}
-              {/*  style={{ width: '100px' }}*/}
-              {/*>*/}
-              {/*  Pretraži*/}
-              {/*</Button>*/}
+              <Button
+                type="primary"
+                onClick={applyFilter}
+                style={{ width: '100px' }}
+              >
+                Pretraži
+              </Button>
               <Button
                 type="primary"
                 danger
@@ -369,7 +368,7 @@ const Ponuda = () => {
               </Button>
             </Space>
           </Col>
-          <Col xs={24} sm={24} md={24} lg={18}>
+          <Col xs={24} sm={24} md={16} lg={18}>
             <div
               style={{
                 border: `2px solid #D3D3D3`,
@@ -383,9 +382,9 @@ const Ponuda = () => {
               }}
             >
               <div style={{ maxWidth: '95%' }}>
-                <Row gutter={[16, 16]} align="top">
+                <Row gutter={[16, 16]} justify="center">
                   {currentCars.map((car, id) => (
-                    <Col key={id} xs={24} sm={20} md={20} lg={16} xl={8}>
+                    <Col key={id} xs={24} sm={12} md={14} lg={10} xl={8}>
                       <Link to={`/cars/${car.id}`}>
                         <Card
                           hoverable
@@ -393,7 +392,7 @@ const Ponuda = () => {
                             border: `5px solid #D3D3D3`,
                             margin: '10px',
                             padding: '20px',
-                            textAlign: 'left',
+                            textAlign: 'center',
                             width: '100%',
                           }}
                           cover={
@@ -407,12 +406,12 @@ const Ponuda = () => {
                             />
                           }
                         >
-                          <p style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
-                            {car.carName}
+                          <p style={{ fontSize: '1.3rem', fontWeight: 'bold' }}>
+                            Brand: {car.carName}
                           </p>
 
                           <p style={{ fontWeight: 'bold' }}>
-                            Proizvođač: {car.brand}
+                            Brand: {car.brand}
                           </p>
                           <p style={{ fontWeight: 'bold' }}>
                             Godina: {car.year}
@@ -471,4 +470,4 @@ const Ponuda = () => {
   );
 };
 
-export default Ponuda;
+export default NewCars;
