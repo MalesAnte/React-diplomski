@@ -18,6 +18,7 @@ const menu = [
   {
     id: '1',
     name: 'POČETNA',
+
     url: '/ipz',
   },
   {
@@ -27,8 +28,8 @@ const menu = [
   },
   {
     id: '3',
-    name: 'KONTAKT',
-    url: '/login',
+    name: 'VOZILA U DOSLASKU!',
+    url: '/incomingVehicles',
   },
 ];
 
@@ -87,30 +88,30 @@ const Footer = () => {
 
         {/* Third row */}
         <Col xs={24} sm={6}>
-          <h3>About Us</h3>
+          <h3>About Me</h3>
           <p>O meni</p>
         </Col>
 
         {/* Fourth row */}
         <Col xs={24} sm={6}>
-          <h3>Follow Us</h3>
+          <h3>Follow Me</h3>
           <Space>
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/antemales3?mibextid=ZbWKwL"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FacebookOutlined />
             </a>
             <a
-              href="https://www.twitter.com/"
+              href="https://x.com/Mega187777?t=5ZmnDCI6lVxFX7YYaUgdaQ&s=09"
               target="_blank"
               rel="noopener noreferrer"
             >
               <TwitterOutlined />
             </a>
             <a
-              href="https://www.instagram.com/"
+              href="https://instagram.com/ante.males_99?igshid=OGQ5ZDc2ODk2ZA=="
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -178,7 +179,7 @@ const PublicLayout = ({ children }) => {
       {/*  />*/}
       {/*</Header>*/}
 
-      <Header style={{ alignItems: 'center', display: 'flex' }}>
+      <Header style={{ alignItems: 'center' }}>
         <div className="demo-logo" />
         <Menu
           theme="dark"

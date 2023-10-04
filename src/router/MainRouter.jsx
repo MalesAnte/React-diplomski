@@ -3,6 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 
 import FullScreenSpinner from '../components/spinners/FullScreenSpinner.jsx';
 import Ponuda from '../pages/cars/ponuda.jsx';
+import NewCars from '../pages/incomingVehicles/newCars';
 import Login from '../pages/login/login.jsx';
 import SelectCar from '../pages/oneCar/carSelected';
 
@@ -17,7 +18,7 @@ export const MainRouter = (props) => {
         <>
           <Route path="/ipz" element={<Ipz />} />
           <Route path="/cars" element={<Ponuda />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/incomingVehicles" element={<NewCars />} />
           <Route path="/cars/:carId" element={<SelectCar />} />
         </>
       </Routes>

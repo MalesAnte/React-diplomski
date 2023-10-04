@@ -1,37 +1,42 @@
-import { Layout, Card, Col } from 'antd';
+import { Layout, Card, Col, Row, Space } from 'antd';
 import React, { useState, useEffect } from 'react';
+import { Fade } from 'react-slideshow-image';
 
-import '../../assets/styles/public.css';
+import 'react-slideshow-image/dist/styles.css';
+import jsonData from '../../api/data.json';
 
 const { Meta } = Card;
 const { Content, Footer } = Layout;
 
+const spanStyle = {
+  background: '#efefef',
+  color: '#000000',
+  padding: '20px',
+};
+
+const divStyle = {
+  alignItems: 'center',
+  backgroundSize: 'cover',
+  display: 'flex',
+  height: '400px',
+  justifyContent: 'center',
+};
+const carImages = jsonData.cars.map((car, index) => ({
+  caption: car.carName,
+  url: car.image,
+}));
 const Login = () => {
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <Content>
-        <Col xs={24} sm={12} md={12} lg={12}>
-          <div>
-            <div>
-              <h1>ANTE</h1>
-            </div>
-            <div>
-              <h1>ANTE</h1>
-            </div>
+    <div className="slide-container">
+      <Fade>
+        {carImages.map((carImage, index) => (
+          <div key={index}>
+            <img style={{ width: '100%' }} src={carImage.url} />
+            <h2>{carImage.caption}</h2>
           </div>
-        </Col>
-        <Col xs={24} sm={12} md={12} lg={12}>
-          <div>
-            <div>
-              <h1>ANTE</h1>
-            </div>
-            <div>
-              <h1>ANTE</h1>
-            </div>
-          </div>
-        </Col>
-      </Content>
-    </Layout>
+        ))}
+      </Fade>
+    </div>
   );
 };
 
