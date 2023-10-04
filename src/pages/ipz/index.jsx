@@ -1,14 +1,4 @@
-import {
-  Layout,
-  Typography,
-  Input,
-  Button,
-  Space,
-  Card,
-  Col,
-  Row,
-  Modal,
-} from 'antd';
+import { Layout, Typography, Input, Button, Space, Card, Col, Row } from 'antd';
 import React, { useState, useEffect } from 'react';
 // import {
 //   BsFillFuelPumpFill,
@@ -28,17 +18,11 @@ const { Title } = Typography;
 
 const Ipz = () => {
   const [selectedCar, setSelectedCar] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false);
+
   const [randomCars, setRandomCars] = useState({});
 
   const showCarDetails = (car) => {
     setSelectedCar(car);
-    setModalVisible(true);
-  };
-
-  const handleModalClose = () => {
-    setSelectedCar(null);
-    setModalVisible(!modalVisible);
   };
 
   // Grupisanje automobila po kategorijama
@@ -172,119 +156,121 @@ const Ipz = () => {
                 <Row gutter={[16, 16]} justify="center">
                   {cars.map((car) => (
                     <Col key={car.id} xs={24} sm={12} md={12} lg={6}>
-                      <Card
-                        onClick={() => showCarDetails(car)}
-                        hoverable
-                        style={{
-                          border: `5px solid #D3D3D3`,
-                          margin: '10px',
-                          padding: '20px',
-                          textAlign: 'center',
-                          width: '100%',
-                        }}
-                        cover={
-                          <img
-                            alt=""
-                            src={car.image}
-                            style={{
-                              height: '280px',
-                              objectFit: 'cover',
-                            }}
-                          />
-                        }
-                      >
-                        <Meta title={car.carName} />
-
-                        <Space direction="vertical" size={1}>
-                          <h5
-                            style={{
-                              alignItems: 'center',
-                              display: 'flex',
-                              fontSize: '1.1rem',
-                              fontWeight: 'bold',
-                              marginLeft: '10px',
-                            }}
-                          >
-                            {/*<BsCalendarCheckFill*/}
-                            {/*  size="1.5rem"*/}
-                            {/*  style={{ marginRight: '10px' }}*/}
-                            {/*/>*/}
-                            {car.year}
-                            <p
+                      <Link to={`/cars/${car.id}`}>
+                        <Card
+                          onClick={() => showCarDetails(car)}
+                          hoverable
+                          style={{
+                            border: `5px solid #D3D3D3`,
+                            margin: '10px',
+                            padding: '20px',
+                            textAlign: 'center',
+                            width: '100%',
+                          }}
+                          cover={
+                            <img
+                              alt=""
+                              src={car.image}
                               style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                fontSize: '1.5rem',
-                                fontWeight: 'bold',
-                                marginLeft: '10px',
-                                marginRight: '10px',
+                                height: '280px',
+                                objectFit: 'cover',
                               }}
-                            >
-                              |
-                            </p>
-                            <p
+                            />
+                          }
+                        >
+                          <Meta title={car.carName} />
+
+                          <Space direction="vertical" size={1}>
+                            <h5
                               style={{
                                 alignItems: 'center',
                                 display: 'flex',
                                 fontSize: '1.1rem',
                                 fontWeight: 'bold',
+                                marginLeft: '10px',
                               }}
                             >
-                              {/*<TbRoad*/}
+                              {/*<BsCalendarCheckFill*/}
                               {/*  size="1.5rem"*/}
                               {/*  style={{ marginRight: '10px' }}*/}
                               {/*/>*/}
-                              {car.kilometers} km
-                            </p>
-                            <p
-                              style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                fontSize: '1.5rem',
-                                fontWeight: 'bold',
-                                marginLeft: '10px',
-                                marginRight: '10px',
-                              }}
-                            >
-                              |
-                            </p>
-                            <p
-                              style={{
-                                alignItems: 'center',
-                                display: 'flex',
-                                fontSize: '1.1rem',
-                                fontWeight: 'bold',
-                              }}
-                            >
-                              {/*<BsFillFuelPumpFill*/}
-                              {/*  size="1.2rem"*/}
-                              {/*  style={{ marginRight: '10px' }}*/}
-                              {/*/>*/}
-                              {car.fuel}
-                            </p>
-                          </h5>
+                              {car.year}
+                              <p
+                                style={{
+                                  alignItems: 'center',
+                                  display: 'flex',
+                                  fontSize: '1.5rem',
+                                  fontWeight: 'bold',
+                                  marginLeft: '10px',
+                                  marginRight: '10px',
+                                }}
+                              >
+                                |
+                              </p>
+                              <p
+                                style={{
+                                  alignItems: 'center',
+                                  display: 'flex',
+                                  fontSize: '1.1rem',
+                                  fontWeight: 'bold',
+                                }}
+                              >
+                                {/*<TbRoad*/}
+                                {/*  size="1.5rem"*/}
+                                {/*  style={{ marginRight: '10px' }}*/}
+                                {/*/>*/}
+                                {car.kilometers} km
+                              </p>
+                              <p
+                                style={{
+                                  alignItems: 'center',
+                                  display: 'flex',
+                                  fontSize: '1.5rem',
+                                  fontWeight: 'bold',
+                                  marginLeft: '10px',
+                                  marginRight: '10px',
+                                }}
+                              >
+                                |
+                              </p>
+                              <p
+                                style={{
+                                  alignItems: 'center',
+                                  display: 'flex',
+                                  fontSize: '1.1rem',
+                                  fontWeight: 'bold',
+                                }}
+                              >
+                                {/*<BsFillFuelPumpFill*/}
+                                {/*  size="1.2rem"*/}
+                                {/*  style={{ marginRight: '10px' }}*/}
+                                {/*/>*/}
+                                {car.fuel}
+                              </p>
+                            </h5>
 
-                          <p
-                            style={{
-                              border: `1px dashed red`,
-                              borderRadius: 20,
-                              fontSize: '1.9rem',
-                              fontWeight: 'bold',
-                              padding: '5px',
-                              textAlign: 'center',
-                            }}
-                          >
-                            Cijena: {car.price} KM
-                            {/*<BsCurrencyEuro size="1.4rem" />*/}
-                          </p>
-                          <div
-                            style={{
-                              fontSize: '25px',
-                              fontWeight: 'bold',
-                            }}
-                          ></div>
-                        </Space>
-                      </Card>
+                            <p
+                              style={{
+                                border: `1px dashed red`,
+                                borderRadius: 20,
+                                fontSize: '1.9rem',
+                                fontWeight: 'bold',
+                                padding: '5px',
+                                textAlign: 'center',
+                              }}
+                            >
+                              Cijena: {car.price} KM
+                              {/*<BsCurrencyEuro size="1.4rem" />*/}
+                            </p>
+                            <div
+                              style={{
+                                fontSize: '25px',
+                                fontWeight: 'bold',
+                              }}
+                            ></div>
+                          </Space>
+                        </Card>
+                      </Link>
                     </Col>
                   ))}
                 </Row>
@@ -293,61 +279,40 @@ const Ipz = () => {
           </div>
         </div>
       </Content>
-      <Modal
-        visible={modalVisible}
-        onCancel={handleModalClose}
-        width={1000}
-        height={1000}
-        footer={[
-          <Link to={`/cars`}>
-            <Button
-              type="primary"
-              key="close"
-              onClick={handleModalClose}
-              style={{
-                marginRight: '5px',
-                width: '100px',
-              }}
-            >
-              Vidi više
-            </Button>
-          </Link>,
-        ]}
-      >
-        {selectedCar && (
-          <div>
-            <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>
-              {selectedCar.carName}
-            </h1>
 
-            <img
-              src={selectedCar.image}
-              alt="Car"
-              style={{ marginBottom: '10px', width: '100%' }}
-            />
-            {/*<img*/}
-            {/*  src={selectedCar.image1}*/}
-            {/*  alt="Car"*/}
-            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
-            {/*/>*/}
-            {/*<img*/}
-            {/*  src={selectedCar.image2}*/}
-            {/*  alt="Car"*/}
-            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
-            {/*/>*/}
-            {/*<img*/}
-            {/*  src={selectedCar.image3}*/}
-            {/*  alt="Car"*/}
-            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
-            {/*/>*/}
-            {/*<img*/}
-            {/*  src={selectedCar.image4}*/}
-            {/*  alt="Car"*/}
-            {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
-            {/*/>*/}
-          </div>
-        )}
-      </Modal>
+      {selectedCar && (
+        <div>
+          <h1 style={{ fontSize: '2.5rem', textAlign: 'center' }}>
+            {selectedCar.carName}
+          </h1>
+
+          <img
+            src={selectedCar.image}
+            alt="Car"
+            style={{ marginBottom: '10px', width: '100%' }}
+          />
+          {/*<img*/}
+          {/*  src={selectedCar.image1}*/}
+          {/*  alt="Car"*/}
+          {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+          {/*/>*/}
+          {/*<img*/}
+          {/*  src={selectedCar.image2}*/}
+          {/*  alt="Car"*/}
+          {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+          {/*/>*/}
+          {/*<img*/}
+          {/*  src={selectedCar.image3}*/}
+          {/*  alt="Car"*/}
+          {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+          {/*/>*/}
+          {/*<img*/}
+          {/*  src={selectedCar.image4}*/}
+          {/*  alt="Car"*/}
+          {/*  style={{ marginBottom: '10px', width: '100%' }}*/}
+          {/*/>*/}
+        </div>
+      )}
     </Layout>
   );
 };
